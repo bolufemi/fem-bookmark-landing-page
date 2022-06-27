@@ -1,0 +1,95 @@
+@use '../util' as *;
+
+.hero {
+    padding-top: rem(145);
+    
+    .container {
+        @include breakpoint(large) {
+            display: flex;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+        }
+    }
+
+    .hero__right {
+
+        .vec__img {
+            width: 100%;
+            height: auto;    
+            
+            @include breakpoint(large) {
+                min-width: rem(650);
+                margin-left: rem(80);
+            }
+        }    
+    }
+
+    .hero__left {
+        @include breakpoint(large) {
+            margin-top: rem(80);
+            margin-right: rem(-50);
+        }
+        
+        article {
+            text-align: center;
+            
+            @include breakpoint(large) {
+                text-align: left;
+            }
+    
+            h1 {
+                font-size: clamp(2rem, 1rem + 2vw, 3rem);
+                font-weight: 500;
+            }
+        }
+
+        .btn__links {
+            display: flex;  
+
+            @include breakpoint(large) {
+                margin-top: rem(33);
+            }
+           
+            .primary__btn {
+                @extend .btn;
+                background-color: var(--soft-blue);
+                color: white;
+                margin-right: rem(20);
+        
+                &:hover {
+                    background-color: white;
+                    color: var(--soft-blue);
+                    border: 1.7px solid var(--soft-blue);  
+                    box-shadow: 0 0 0 0;              
+                }
+        
+            }
+        
+            .secondary__btn {
+                @extend .btn;
+                background-color: whitesmoke;
+                color: black;
+                box-shadow: 0 5px 0 hsl(229, 85%, 92%);
+        
+                &:hover {
+                    background-color: white;
+                    border: 1.7px solid black; 
+                    box-shadow: 0 0 0 0;
+                }
+            }
+        }
+          
+    
+    }
+   
+}
+
+
+.btn {
+    text-decoration: none;
+    font-size: .85rem;
+    font-weight: 500;
+    padding: 1.125rem;
+    border-radius: 7px;
+}
+

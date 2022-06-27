@@ -1,0 +1,76 @@
+@use '../util' as *;
+
+.footer {
+    text-align: center;
+    background-color: var(--vd-blue);
+    padding: 2.5rem 0;
+
+    @include breakpoint(large) {
+        padding: 0;
+    }
+
+    .container {
+        @include breakpoint(large) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }    
+    }
+
+    .left__side {
+
+        img {
+            filter: brightness(0) invert(100%);
+        }
+
+        @include breakpoint(large) {
+            display:flex;
+            align-items: center;    
+            padding: rem(35) 0;
+        }
+    }
+
+    &__menu {
+        padding-left: 0px;
+        padding-top: rem(40);
+
+        @include breakpoint(large) {
+            padding-top: 0;
+        }
+
+        li {
+            list-style: none;
+            margin-bottom: rem(32);   
+            
+            @include breakpoint(large) {
+                display: inline-block;
+                margin: 0 0 0 rem(60);
+            }
+        }
+
+        a {
+            text-decoration: none;
+            color: white;
+            font-size: rem(14);  
+            letter-spacing: 2px;
+
+            &:hover {
+                color: var(--soft-red);
+            }      
+        }
+    }
+
+    .right__side {
+
+        img {
+            margin: 0 rem(30);
+            filter: brightness(0) invert(100%);
+            cursor: pointer;
+            
+            &:hover {
+                filter: invert(100%);
+            }
+        }
+    }
+}
+

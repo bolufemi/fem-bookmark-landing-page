@@ -1,0 +1,134 @@
+@use '../util' as *;
+
+header {
+    position: fixed;
+    width: 100%;
+    padding-top: 2.5rem;
+    z-index: 5;
+
+    @include breakpoint(large) {
+        position: initial;
+        padding-top: 3rem;
+    }
+
+    .logo {
+        float: left;
+    }
+
+    .toggler {
+        content: url('../images/icon-hamburger.svg');
+        -webkit-appearance: none; 
+        cursor: pointer;
+        padding-top: rem(5);
+        float: right;
+        
+        &:checked {
+            content: url('../images/icon-close.svg');
+            filter: brightness(0) invert(1);        
+        }
+        &:checked ~ .menu__links {
+            max-height: rem(400);
+            padding-top: rem(50);
+            pointer-events: all;
+
+            @include breakpoint(large) {
+                padding-top: 0;
+            }
+        }
+        
+        @include breakpoint(large) {
+            display: none;
+        }
+    }
+
+    .menu__links {
+        list-style: none;
+        overflow: hidden;
+        clear: both;
+        max-height: 0;
+        transition: max-height .5s ease-out ;
+        pointer-events: none;
+        padding: 0;
+        letter-spacing: 2px;    
+        
+        @include breakpoint(large) {
+            clear: none;
+            float: right;
+            overflow: visible;
+            margin-top: 0;
+            pointer-events: all;
+        }
+
+        li {
+            margin-bottom: rem(24);
+            text-align: center;
+            border-bottom: 1px solid var(--gray-blue);
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            @include breakpoint(large) {
+                float: left;
+                text-align: left;
+                border-bottom: none;
+                margin: 0;
+            }
+
+            .menu__link {
+                text-decoration: none;
+                display: block;
+                margin-bottom: rem(26);
+                font-size: 1.25rem;
+                color: white;
+                
+                @include breakpoint(large) {
+                    font-size: 0.875rem;
+                    color: black;
+                    margin-right: rem(45);
+
+                    &:hover {
+                        color: var(--soft-red);
+                    }
+                }
+            }
+
+            .odd__link {
+                text-decoration: none;
+                display: block;
+                margin-bottom: rem(26);
+                font-size: 1.25rem;
+                color: white;
+                border: 3px solid white;
+                border-radius: 8px;
+                outline: none;
+                padding: 1.125rem 1.125rem; 
+                
+                @include breakpoint(large) {
+                    padding: .7rem 2rem .7rem 2rem;
+                    margin-top: -12px;
+                    font-size: 0.875rem;
+                    color: white;
+                    background-color: var(--soft-red);
+                    
+                    &:hover {
+                        background-color: white;
+                        color: var(--soft-red);
+                        border: 2px solid var(--soft-red);                
+                    }
+                }
+            }
+        }
+    }
+}
+
+header.menu-active {
+    height: 100vh;
+    background-color: var(--overlay);
+}
+
+.logo-filter {
+    filter: brightness(0) invert(1);
+}
+
+

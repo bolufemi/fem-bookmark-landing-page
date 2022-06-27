@@ -1,0 +1,153 @@
+@use '../util' as *;
+
+.feature {
+    margin-top: rem(110);
+
+    .container {
+        text-align: center;
+
+        h1 {
+            font-size: clamp(1.5rem, 1.37rem + 0.56vw, 1.875rem);
+            font-weight: 500;               
+        }
+
+        p {
+            text-align: center;
+            margin-top: rem(22);
+
+            @include breakpoint(large) {
+                padding: 0 rem(300);
+                margin-top: rem(35);
+            }
+        }
+
+        .tab__section {
+            margin-top: rem(44);
+            padding-left: 0;
+
+            @include breakpoint(large) {
+                display: flex;
+                border-bottom: 1px solid var(--gray-blue);
+                margin: rem(75) rem(200);
+            }
+
+            .feature-link {
+                list-style: none;
+                margin-bottom: rem(23);
+                padding-bottom: rem(20);
+                border-bottom: 1px solid var(--gray-blue);            
+                width: 100%;
+
+                @include breakpoint(large) {
+                    border-bottom: none;
+                    padding-bottom: rem(27);
+                    margin-bottom: -4px;
+                }
+                
+                a {
+                    color: var(--gray-blue);
+                    text-decoration: none;
+                    font-size: 1.125rem;
+                    position: relative;
+                    
+                    &:focus {
+                        color: black; 
+
+                        &::after {
+                            content: '';
+                            position: absolute;
+                            top: 39px;
+                            left: 10px;
+                            border-bottom: 6px solid var(--soft-red);
+                            width: 90%;
+
+                            @include breakpoint(large) {
+                                width: 150%;
+                                left: -48px;
+
+                            }
+                        }                          
+                        @include breakpoint(large) {
+                            padding-bottom: 2rem;
+                        }
+                    }
+                    &:hover {
+                        color: var(--soft-red);
+                    }
+
+                }
+                
+            }
+            .opaque-link {
+                list-style: none;
+                margin: 0 rem(30) rem(22) 0;
+                border-bottom: 1px solid var(--gray-blue);            
+                width: 100%;
+
+                @include breakpoint(large) {
+                    display: none;
+                }
+            }
+        }
+
+        .tab__content {
+            display: none;
+            margin-top: rem(70);
+
+            @include breakpoint(large) {
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 120px;
+            }
+
+            img {
+                width: 80%;
+                height: auto;
+
+                @include breakpoint(large) {
+                    min-width: rem(540);
+                }
+            }
+            .tab__article {
+                margin-top: rem(84);
+                position: relative;
+
+                @include breakpoint(large) {
+                    margin-top: rem(56);
+                }
+
+                h1 {
+                    @include breakpoint(large) {
+                        text-align: left;   
+                    }    
+                }
+                a {
+                    display: none;
+                    background-color: var(--soft-blue);
+                    color: white;
+                    text-decoration: none;
+                    font-weight: 500;
+                    font-size: 1.25rem;
+                    padding: 1.125rem 1.5rem 1.125rem 1.5rem;
+                    border: none;
+                    border-radius: 8px; 
+                    letter-spacing: .6px;   
+                    
+                    @include breakpoint(large) {
+                        display: inherit;
+                        position: absolute;
+                        top: 193px;
+                        left: 0;
+                    }
+                }    
+                p {
+                    @include breakpoint(large) {
+                        padding: 0;     
+                        text-align: left;
+                        margin: rem(25) rem(50) 0 0;
+                    }
+                }
+            }
+        }
+    }
+}
+

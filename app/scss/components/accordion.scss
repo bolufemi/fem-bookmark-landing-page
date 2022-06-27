@@ -1,0 +1,89 @@
+@use '../util' as *;
+
+.accordion {
+    margin-top: rem(140);
+    text-align: center;
+
+    h1 {
+        text-align: center;
+        font-weight: 500;   
+        margin-bottom: rem(22);
+
+        @include breakpoint(large) {
+            font-size: 1.875rem;
+            margin-bottom: 0;
+        }
+    }
+    p {
+        text-align: center;
+
+        @include breakpoint(large) {
+            padding: 0 rem(300);
+            margin-top: rem(35);
+        }
+    }
+    .faq__links {
+        margin-top: rem(60);
+
+        @include breakpoint(large) {
+            margin: rem(60) rem(320) 0 rem(320);
+        }
+        
+        .faq {
+            cursor: pointer;
+            border-bottom: 1px solid hsl(229, 8%, 60%); 
+            
+            .question {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin: rem(25) 0;
+                
+                h3 {
+                    font-size: clamp(1rem, 0.87rem + 0.56vw, 1.375rem);
+                    font-weight: 300;                    
+                }
+
+                &:hover {
+                    color: var(--soft-red);
+                }
+
+                .arrow-icon {
+                    transition: transform 0.5s ease;
+                }
+            }
+        }
+
+        button {
+            background-color: var(--soft-blue);
+            font-size: 1rem;
+            font-weight: 500;
+            padding: rem(16) rem(22);
+            margin-top: rem(40);
+        }
+    }
+}
+
+.answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: transform 0.5s ease;
+    
+    p {
+        text-align: left;
+
+        @include breakpoint(large) {
+            padding: 0;
+        }
+    }
+}
+
+
+.active .answer {
+    max-height: 350px;
+    transform: translateY(-10px);
+}
+
+.active .arrow-icon {
+    transform: rotate(180deg);
+}

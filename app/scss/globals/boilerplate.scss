@@ -1,0 +1,44 @@
+@use '../util' as *;
+
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+    margin: 0;
+}
+
+body {
+    font-family: var(--font-rubik);
+}
+
+.container {
+    width: 85%;
+    margin: 0 auto;
+}
+
+button {
+    font-family: var(--font-rubik);
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+
+.spacing>*+* {
+    margin-top: var(--spacer, 26.5px);
+}
+
+p {
+    font-size: clamp(1rem, .9rem + .38vw, 1.25rem);
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--gray-blue)
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
